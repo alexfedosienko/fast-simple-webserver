@@ -18,7 +18,7 @@
 * Клонируем репозиторий
 ```git clone https://github.com/alexfedosienko/fast-simple-webserver.git```
 * Переходим в директорию и делаем файлы исполняемыми
-```cd fast-simple-webserve && chmod +x autoinstall.sh && chmod +x addsite.sh```
+```cd fast-simple-webserver && chmod +x autoinstall.sh && chmod +x addsite.sh```
 * Запускаем установку
 ```sh autoinstall.sh```
 * Добавляем сайт без ssl
