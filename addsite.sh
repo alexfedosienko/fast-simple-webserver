@@ -19,7 +19,22 @@ if [ $DOMAIN_NAME ]; then
 	chown -R www-data:www-data /var/www/$DOMAIN_NAME
 	chmod -R 775 /var/www/$DOMAIN_NAME
 
-	echo "<?php echo '<h1>Hello from $DOMAIN_NAME</h1>'; ?>" >> /var/www/$DOMAIN_NAME/www/index.php
+	rm /var/www/$DOMAIN_NAME/www/index.php
+
+	cat > "/var/www/$DOMAIN_NAME/www/index.php" <<EOF
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Новый сайт $DOMAIN_NAME</title>
+</head>
+<body>
+    <div class="container" style="height: 100vh; display: flex; justify-content: center; align-items: center;">
+        <p style="padding: 40px 100px; border: 1px solid blue; text-align: center;">Новый сайт $DOMAIN_NAME</p>
+    </div>
+</body>
+</html>
+EOF
 
 	cat > "/etc/apache2/sites-enabled/$DOMAIN_NAME.conf" <<EOF
 <VirtualHost *:8080>
@@ -45,7 +60,7 @@ server {
 
 	listen 80;
 	server_name $DOMAIN_NAME www.$DOMAIN_NAME;
-	
+
 	access_log /var/www/$DOMAIN_NAME/log/nginx/access_log;
 	error_log /var/www/$DOMAIN_NAME/log/nginx/error_log;
 
