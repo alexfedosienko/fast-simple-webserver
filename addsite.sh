@@ -101,10 +101,10 @@ EOF
 		echo "Доступ для сайта ${DOMAIN_NAME}"
 		echo "--------"
 		echo "Доступ к базе данных MySQL:"
-		echo "Логин - ${DOMAIN_NAME} Пароль - ${MYSQL_PASSWD} База данных - ${MYSQL_DB_NAME}"
+		echo "Логин - ${MYSQL_DB_NAME} Пароль - ${MYSQL_PASSWD} База данных - ${MYSQL_DB_NAME}"
 		echo "--------"
 		echo "Доступ к FTP:"
-		echo "Логин - ${FTP_PASSWD} Пароль - ${DOMAIN_NAME}"
+		echo "Логин - ${DOMAIN_NAME} Пароль - ${FTP_PASSWD}"
 		echo "------------------------------------------------------------"
 
 	fi
